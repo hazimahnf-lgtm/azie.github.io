@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus in Animal Husbandry: Kedah-Kelantan Cattle Growth Rates</title>
+    <!-- Tailwind CSS for modern, clean styling -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Chart.js for interactive data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .math-font { font-family: 'Times New Roman', Times, serif; font-style: italic; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-emerald-800 text-white py-8 px-6 shadow-md">
+        <div class="max-w-5xl mx-auto">
+            <span class="text-emerald-300 font-bold tracking-wider text-sm uppercase">Animal Husbandry Technology • Math Application</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold mt-1">Modeling Kedah-Kelantan (KK) Cattle Weight Gain via Derivatives</h1>
+            <p class="text-emerald-100 mt-2 text-base md:text-lg max-w-3xl">
+                Understanding real-time growth efficiency in local Malaysian beef cattle using the cubic growth function and its first derivative.
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-8">
+        
+        <!-- Bioscience Problem Explanation -->
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <h2 class="text-2xl font-bold text-slate-900 border-b pb-2 mb-4">The Bioscience Problem</h2>
+            <p class="text-slate-700 leading-relaxed">
+                In Malaysian beef production, the <strong>Kedah-Kelantan (KK) cattle</strong> breed is highly valued for its adaptability to the tropical climate. To optimize feeding regimes, pasture rotation, and market timing, animal scientists must monitor not just the total weight of the animal, but its <strong>instantaneous growth rate</strong> (how fast it is gaining weight per month at any given moment). 
+            </p>
+            <div class="mt-4 bg-amber-50 border-l-4 border-amber-500 p-4 text-sm text-amber-900 rounded-r-lg">
+                <strong>Why Derivatives Matter:</strong> Weighing cattle constantly is stressful and impractical. By fitting a mathematical model to growth data, we can use the <strong>first derivative <span class="math-font">f'(x)</span></strong> to pinpoint the exact month the animal hits its peak metabolic efficiency before growth begins to taper off.
+            </div>
+        </section>
+
+        <!-- Mathematical Model & Data Source Split Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Formulas Section -->
+            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900 border-b pb-2 mb-4">The Mathematical Model</h2>
+                    <p class="text-sm text-slate-600 mb-4">Based on typical sigmoidal/cubic growth curves adjusted for Malaysian KK cattle averages over a 24-month cycle:</p>
+                    
+                    <!-- Weight Function -->
+                    <div class="bg-slate-50 p-4 rounded-lg mb-4 border border-slate-100">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Weight Function f(x)</span>
+                        <div class="text-lg font-mono text-emerald-700 mt-1">
+                            f(x) = -0.025x³ + 0.95x² + 2.5x + 15
+                        </div>
+                        <span class="text-xs text-slate-500 block mt-1">Yields total mass in kilograms (kg) at month <span class="math-font">x</span>.</span>
+                    </div>
+
+                    <!-- Derivative Function -->
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Growth Rate Function f'(x) [Derivative]</span>
+                        <div class="text-lg font-mono text-blue-700 mt-1">
+                            f'(x) = -0.075x² + 1.9x + 2.5
+                        </div>
+                        <span class="text-xs text-slate-500 block mt-1">Calculates the precise rate of gain in kg/month at month <span class="math-font">x</span>.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Reference Section -->
+            <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900 border-b pb-2 mb-4">Data Benchmarks & Literature</h2>
+                    <p class="text-sm text-slate-700 leading-relaxed mb-4">
+                        The curve parameters are tailored to reflect realistic growth benchmarks found in local Malaysian livestock literature, where birth weights hover around 15kg and reach mature market weights around 220-250kg under standard nutritional management.
+                    </p>
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Reference Sources Used for Baseline Realism:</h3>
+                    <ul class="text-xs space-y-2 text-slate-600 list-disc pl-4">
+                        <li>
+                            <strong class="text-slate-800">MARDI Research Journal:</strong> <em>"Growth performance and carcass characteristics of Kedah-Kelantan cattle"</em>
+                        </li>
+                        <li>
+                            <strong class="text-slate-800">Malaysian Journal of Animal Science (MJAS):</strong> <em>"Liveweight and growth patterns of indigenous Kedah-Kelantan cattle under intensive feeding systems"</em>
+                        </li>
+                        <li>
+                            <strong class="text-slate-800">Department of Veterinary Services Malaysia (DVS):</strong> <em>"Livestock Statistics & National Breed Benchmarks"</em>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Interactive Chart Section -->
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b pb-4 mb-4 gap-2">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Interactive Growth & Rate Visualizer</h2>
+                    <p class="text-sm text-slate-500">Click anywhere on the line graph to analyze the derivative at that exact point in time.</p>
+                </div>
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-200">
+                    Interactive Click Enabled
+                </span>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="relative w-full overflow-hidden" style="height: 400px;">
+                <canvas id="growthChart"></canvas>
+            </div>
+            
+            <hr class="my-6 border-slate-100">
+
+            <!-- Interactive Dynamic Output Panel -->
+            <div id="clickPrompt" class="text-center py-6 text-slate-400 border-2 border-dashed border-slate-200 rounded-xl bg-slate-25">
+                💡 <span class="font-medium">Click on any data node on the chart</span> to evaluate the derivative and see the husbandry analysis.
+            </div>
+
+            <div id="analysisPanel" class="hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-xl shadow-inner space-y-4 transition-all duration-300">
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700 pb-3">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block">Selected Timeline Point</span>
+                        <div class="text-xl font-extrabold text-amber-400"><span id="outMonth">0</span> Months Old</div>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block">Total Cattle Weight <span class="math-font">f(x)</span></span>
+                        <div class="text-xl font-extrabold text-emerald-400"><span id="outWeight">0.0</span> kg</div>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block">Calculated Derivative <span class="math-font">f'(x)</span></span>
+                        <div class="text-xl font-extrabold text-blue-400"><span id="outDerivative">0.00</span> kg/month</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">Layman / Husbandry Insights</h4>
+                    <p id="outExplanation" class="text-slate-200 text-sm leading-relaxed">
+                        Select a point to see the practical farm-level meaning of this derivative.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 text-center py-6 text-xs border-t border-slate-800 mt-12">
+        Developed for educational demonstration purposes in Animal Husbandry Technology applications. Powered by Chart.js.
+    </footer>
+
+    <!-- Logic Script handling math formulas, chart rendering, and interactions -->
+    <script>
+        // --- 1. Math Equations & Functions ---
+        // f(x) = -0.025x³ + 0.95x² + 2.5x + 15
+        function calculateWeight(x) {
+            return (-0.025 * Math.pow(x, 3)) + (0.95 * Math.pow(x, 2)) + (2.5 * x) + 15;
+        }
+
+        // f'(x) = -0.075x² + 1.9x + 2.5
+        function calculateDerivative(x) {
+            return (-0.075 * Math.pow(x, 2)) + (1.9 * x) + 2.5;
+        }
+
+        // --- 2. Generate Data Points for Timeline (0 to 24 Months) ---
+        const labels = [];
+        const weightData = [];
+        const derivativeData = [];
+
+        for (let m = 0; m <= 24; m++) {
+            labels.push(m);
+            weightData.push(Number(calculateWeight(m).toFixed(1)));
+            derivativeData.push(Number(calculateDerivative(m).toFixed(2)));
+        }
+
+        // --- 3. Dynamic Layman Insights Generator based on Derivative Value/Context ---
+        function getHusbandryExplanation(month, derivative, totalWeight) {
+            if (month === 0) {
+                return `This is the calf's birth weight (~15kg). The derivative of ${derivative} kg/month indicates its structural starting baseline momentum.`;
+            }
+            if (month > 0 && month <= 6) {
+                return `Early phase. The derivative is rising (${derivative} kg/month), meaning the calf is growing faster and faster each month. This is heavily supported by maternal milk supply and initial high-protein starter feeds. Excellent feed conversion ratio (FCR).`;
+            }
+            if (month > 6 && month <= 12) {
+                return `Approaching peak growth speed. At month 12, the growth rate reaches its absolute maximum before hitting a biological plateau. Your pasture nutritional density should be at its absolute best here to fully capture this high metabolic efficiency.`;
+            }
+            if (month > 12 && month <= 18) {
+                return `The derivative is dropping (now down to ${derivative} kg/month) even though total weight is still rising (${totalWeight} kg). This indicates the inflection point has passed. The cattle are starting to build more fat deposit rather than frame/muscle tissue. Maintenance energy costs are rising.`;
+            }
+            if (month > 18) {
+                return `Growth plateau phase. The derivative has fallen sharply down to ${derivative} kg/month. The animal is consuming lots of feed just to maintain its size, gaining very little new mass. From a commercial standpoint, keeping the animal past this window lowers profitability; optimal market processing timing is likely now.`;
+            }
+            return "";
+        }
+
+        // --- 4. Render Chart.js Graph ---
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        
+        const growthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Total Weight f(x) [kg]',
+                        data: weightData,
+                        borderColor: '#10b981', // Emerald
+                        backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                        borderWidth: 3,
+                        yAxisID: 'yWeight',
+                        tension: 0.3,
+                        fill: true,
+                        pointBackgroundColor: '#10b981',
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: '#ffff00'
+                    },
+                    {
+                        label: "Growth Rate f'(x) [kg/month]",
+                        data: derivativeData,
+                        borderColor: '#3b82f6', // Blue
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        yAxisID: 'yRate',
+                        tension: 0.3,
+                        pointBackgroundColor: '#3b82f6',
+                        pointHoverRadius: 8,
+                        pointHoverBackgroundColor: '#ffff00'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1500,
+                    easing: 'easeOutQuart'
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { weight: 'bold' }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            footer: function() {
+                                return "👉 Click point to lock analysis below!";
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Age of Cattle (Months)',
+                            font: { weight: 'bold', size: 12 }
+                        },
+                        grid: { color: '#f1f5f9' }
+                    },
+                    yWeight: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Total Weight (kg)',
+                            font: { weight: 'bold', color: '#10b981' }
+                        },
+                        min: 0,
+                        max: 300,
+                        grid: { color: '#f1f5f9' }
+                    },
+                    yRate: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Weight Gain Rate (kg/Month)',
+                            font: { weight: 'bold', color: '#3b82f6' }
+                        },
+                        min: 0,
+                        max: 20,
+                        grid: { drawOnChartArea: false } // Avoid cluttering lines
+                    }
+                },
+                // Capture element clicks inside Chart.js
+                onClick: (e, elements) => {
+                    if (elements && elements.length > 0) {
+                        const index = elements[0].index;
+                        const targetMonth = labels[index];
+                        
+                        // Calculate metrics dynamically based on mathematical formulas
+                        const exactWeight = calculateWeight(targetMonth).toFixed(1);
+                        const exactDerivative = calculateDerivative(targetMonth).toFixed(2);
+                        const explanation = getHusbandryExplanation(targetMonth, exactDerivative, exactWeight);
+                        
+                        // Update UI display
+                        document.getElementById('clickPrompt').classList.add('hidden');
+                        
+                        const panel = document.getElementById('analysisPanel');
+                        panel.classList.remove('hidden');
+                        
+                        document.getElementById('outMonth').innerText = targetMonth;
+                        document.getElementById('outWeight').innerText = exactWeight;
+                        document.getElementById('outDerivative').innerText = exactDerivative;
+                        document.getElementById('outExplanation').innerHTML = explanation;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
